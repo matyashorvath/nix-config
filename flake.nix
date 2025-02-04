@@ -14,6 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     alejandra.url = "github:kamadorueda/alejandra/3.1.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
@@ -24,6 +26,7 @@
     nixpkgs-stable,
     nixpkgs-unstable,
     home-manager,
+    hyprland,
     alejandra,
     ...
   }: let
