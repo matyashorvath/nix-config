@@ -10,5 +10,9 @@
     enable = true;
     package = null;
     portalPackage = null;
+
+    extraCommands = [
+      "systemctl --user start hyprpolkitagent"
+    ];
   };
 }

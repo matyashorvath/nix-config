@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+conf_path="/etc/nixos"
+
+cd $conf_path
+git add .
+
+if [[ "$1" == "-l" && "$(pwd)" == "$conf_path" ]]; then
+    nix flake update
+    git add .
+fi
+
+sudo nixos-rebuild switch
