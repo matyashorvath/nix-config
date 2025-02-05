@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./git.nix
+    ./hyprland.nix
   ];
 
   programs = {
@@ -18,6 +19,9 @@
     bash = {
       enable = true;
       enableCompletion = true;
+      initExtra = ''
+        PATH="$PATH:$HOME/Scripts"
+      '';
 
       # shellAliases = {};
     };
@@ -31,5 +35,6 @@
     gparted
     inputs.alejandra.defaultPackage.${system}
     git-credential-oauth
+    kitty
   ];
 }
