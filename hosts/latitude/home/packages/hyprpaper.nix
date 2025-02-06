@@ -10,6 +10,9 @@
     enable = true;
 
     settings = {
+      ipc = "on";
+      splash = false;
+
       preload = ["~/Pictures/39.jpg"];
       wallpaper = [",~/Pictures/39.jpg"];
     };

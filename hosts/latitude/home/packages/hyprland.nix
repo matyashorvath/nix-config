@@ -14,14 +14,14 @@
 
     settings = {
       exec-once = [
+        "hyprpaper"
         "systemctl --user start hyprpolkitagent"
         # Replace 'both' with 'regular' below if experiencing issues with text selection
-        "wl-clip-persist --clipboard both"
+        "wl-clip-persist --clipboard regular"
         # Store text & images with cliphist
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "waybar"
-        "hyprpaper"
       ];
 
       monitor = [

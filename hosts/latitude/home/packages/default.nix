@@ -55,5 +55,9 @@
     wl-clipboard
     wl-clip-persist
     cliphist
+    mako
+    hyprsysteminfo
+    hyprland-qt-support
+    nwg-look
   ];
 }

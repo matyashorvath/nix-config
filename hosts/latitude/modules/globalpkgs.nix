@@ -38,6 +38,7 @@
     nix-search-cli
     hyprpolkitagent
     python3
+    udiskie
   ];
 
   programs = {
