@@ -37,6 +37,7 @@
     htop
     nix-search-cli
     hyprpolkitagent
+    python3
   ];
 
   programs = {
@@ -46,4 +47,9 @@
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
   };
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
+  ];
 }

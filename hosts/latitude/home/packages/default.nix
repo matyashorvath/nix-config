@@ -9,6 +9,9 @@
   imports = [
     ./git.nix
     ./hyprland.nix
+    ./waybar.nix
+    ./hyprpaper.nix
+    ./rofi.nix
   ];
 
   programs = {
@@ -25,6 +28,16 @@
 
       # shellAliases = {};
     };
+
+    kitty = {
+      enable = true;
+      font = {
+        name = "JetBrainsMono Nerd Font";
+        size = 10;
+      };
+      shellIntegration.enableBashIntegration = true;
+      themeFile = "Catppuccin-Mocha";
+    };
   };
 
   home.packages = with pkgs; [
@@ -35,6 +48,12 @@
     gparted
     inputs.alejandra.defaultPackage.${system}
     git-credential-oauth
-    kitty
+    vmware-workstation
+    kitty-themes
+    inputs.hyprpaper.packages.${system}.hyprpaper
+    inputs.hyprpicker.packages.${system}.hyprpicker
+    wl-clipboard
+    wl-clip-persist
+    cliphist
   ];
 }

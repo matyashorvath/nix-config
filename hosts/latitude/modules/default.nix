@@ -1,7 +1,7 @@
 {
   imports = [
     ./garbage-collect.nix
-    ./services.nix
+    ./globalpkgs.nix
     ./users.nix
   ];
 }
