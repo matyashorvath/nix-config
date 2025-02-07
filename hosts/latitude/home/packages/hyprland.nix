@@ -24,6 +24,11 @@
         "waybar"
       ];
 
+      env = [
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_QPA_PLATFORMTHEME,qt5ct"
+      ];
+
       monitor = [
         "eDP-1, 1366x768@60, 0x0, 1"
         "HDMI-1, 1920x1080@120, 0x0, 1"

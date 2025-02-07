@@ -20,6 +20,7 @@
 
     alejandra.url = "github:kamadorueda/alejandra/3.1.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = inputs @ {
@@ -32,6 +33,7 @@
     hyprpaper,
     hyprpicker,
     alejandra,
+    catppuccin,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -69,7 +71,13 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.${username} = import ./hosts/${hostname}/home/home.nix;
+                users.${username} = {
+                  imports = [
+                    ./hosts/${hostname}/home/home.nix
+                    catppuccin.homeManagerModules.catppuccin
+                  ];
+                };
+                backupFileExtension = "backup";
                 extraSpecialArgs = {inherit inputs;};
               };
             }

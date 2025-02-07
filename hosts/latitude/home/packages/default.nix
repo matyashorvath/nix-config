@@ -12,6 +12,7 @@
     ./waybar.nix
     ./hyprpaper.nix
     ./rofi.nix
+    ./theme.nix
   ];
 
   programs = {
@@ -41,7 +42,6 @@
   };
 
   home.packages = with pkgs; [
-    gnome-tweaks
     vscode
     fastfetch
     thunderbird
@@ -58,6 +58,7 @@
     mako
     hyprsysteminfo
     hyprland-qt-support
-    nwg-look
+    libsForQt5.qt5ct
+    libsForQt5.qtstyleplugin-kvantum
   ];
 }
