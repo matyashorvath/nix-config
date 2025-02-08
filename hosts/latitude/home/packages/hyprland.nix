@@ -14,19 +14,22 @@
 
     settings = {
       exec-once = [
-        "hyprpaper"
         "systemctl --user start hyprpolkitagent"
+
         # Replace 'both' with 'regular' below if experiencing issues with text selection
         "wl-clip-persist --clipboard regular"
+
         # Store text & images with cliphist
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "waybar"
+        "waybar & hyprpaper"
       ];
 
       env = [
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_QPA_PLATFORMTHEME,qt5ct"
+        "NIXOS_OZONE_WL,1"
+        "ELECTRON_OZONE_PLATFORM_HINT,wayland"
       ];
 
       monitor = [
@@ -60,10 +63,37 @@
       };
 
       "$mod" = "SUPER";
+
       bind = [
-        "$mod, Q, exec, $terminal"
+        "$mod, C, exec, $terminal"
         "$mod, M, exit,"
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mod, Q, killactive,"
+        "$mod, S, exec, code"
+        "$mod, Return, fullscreen, 1"
+        "$mod, Tab, togglefloating,"
+
+        # Switch to next/previous workspace on monitor
+        "$mod ALT, right, workspace, r+1"
+        "$mod ALT, up, workspace, r+1"
+        "$mod ALT, left, workspace, r-1"
+        "$mod ALT, down, workspace, r-1"
+
+        # Move focus
+        "$mod, up, movefocus, u"
+        "$mod, right, movefocus, r"
+        "$mod, down, movefocus, d"
+        "$mod, left, movefocus, l"
+
+        # Swap windows
+        "CONTROL $mod, up, swapwindow, u"
+        "CONTROL $mod, right, swapwindow, r"
+        "CONTROL $mod, down, swapwindow, d"
+        "CONTROL $mod, left, swapwindow, l"
+      ];
+
+      bindr = [
+        "SUPER, Super_L, exec, pkill rofi || rofi -show drun"
       ];
     };
   };

@@ -13,7 +13,7 @@
     configPath = ".config/rofi/config.rasi";
     font = "JetBrainsMono Nerd Font 10";
     location = "center";
-    terminal = "\${pkgs.kitty}/bin/kitty";
+    terminal = "${pkgs.kitty}/bin/kitty";
 
     theme = "arthur";
 
