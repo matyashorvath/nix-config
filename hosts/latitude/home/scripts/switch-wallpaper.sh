@@ -4,10 +4,12 @@ picturePath="$HOME/Pictures/"
 wallpapers=("39.jpg" "mountains.jpg")
 wpStore="/tmp/wallpapers"
 
-if [ -n $wpStore ]; then
+if [ ! -e $wpStore ]; then
+    wpCat="";
     for i in ${wallpapers[@]}; do
-        echo -e "$i\n" >>$wpStore
+        wpCat+="${i}\n"
     done
+    echo -e $wpCat >$wpStore
 fi
 
 currentWp=$(awk 'BEGIN {RS = ""} {print $1}' $wpStore)
