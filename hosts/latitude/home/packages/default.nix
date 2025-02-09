@@ -23,6 +23,9 @@
     bash = {
       enable = true;
       enableCompletion = true;
+      bashrcExtra = ''
+        export TERM=xterm-256color
+      '';
 
       # shellAliases = {};
     };
