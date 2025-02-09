@@ -6,6 +6,8 @@
   inputs,
   ...
 }: {
+  # This is a temporary waybar configuration, some features do not work currently
+
   programs.waybar = {
     enable = true;
 
@@ -137,6 +139,12 @@
                font-family: "Hack Nerd Font" ;
                color: #33ccff;
              }
+       #battery {
+               color:rgb(93, 173, 183);
+             }
+       #battery.low {
+               color: rgb(242, 123, 123);
+             }
     '';
 
     settings = [
@@ -146,6 +154,7 @@
         modules-left = [
           "custom/launcher"
           "temperature"
+          "battery"
           "mpd"
           "custom/cava-internal"
         ];
@@ -163,9 +172,9 @@
         ];
         "custom/launcher" = {
           "format" = " ";
-          "on-click" = "pkill rofi || rofi2";
-          "on-click-middle" = "exec default_wall";
-          "on-click-right" = "exec wallpaper_random";
+          "on-click" = "pkill rofi || rofi -show drun";
+          "on-click-middle" = "exec wallpaper_random";
+          "on-click-right" = "exec switch-wallpaper.sh";
           "tooltip" = false;
         };
         "custom/cava-internal" = {
@@ -229,6 +238,17 @@
         "tray" = {
           "icon-size" = 15;
           "spacing" = 5;
+        };
+        "battery" = {
+          "bat" = "BAT0";
+          "interval" = 5;
+          "format" = "{icon} {capacity}%";
+          "format-icons" = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          "format-charging" = "󰂄 {capacity}%";
+          "format-full" = "󰂄 {capacity}%";
+          "states" = {
+            "low" = 20;
+          };
         };
       }
     ];

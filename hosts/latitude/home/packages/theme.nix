@@ -20,7 +20,10 @@
 in {
   gtk = {
     enable = true;
-    font.name = "TeX Gyre Heros";
+    font = {
+      name = "TeX Gyre Heros";
+      size = 10;
+    };
     theme = {
       name = "catppuccin-${variant}-${accent}-standard";
       package = gtkThemePackage;

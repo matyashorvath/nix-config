@@ -10,8 +10,14 @@
     ./packages
   ];
 
-  home.username = "matyashorvath";
-  home.homeDirectory = "/home/matyashorvath";
+  home = {
+    username = "matyashorvath";
+    homeDirectory = "/home/matyashorvath";
 
-  home.stateVersion = "24.11";
+    sessionPath = [
+      "$HOME/Scripts"
+    ];
+
+    stateVersion = "24.11";
+  };
 }

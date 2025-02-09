@@ -11,7 +11,7 @@
     package = pkgs.rofi-wayland;
 
     configPath = ".config/rofi/config.rasi";
-    font = "JetBrainsMono Nerd Font 10";
+    font = "JetBrainsMono Nerd Font 9";
     location = "center";
     terminal = "${pkgs.kitty}/bin/kitty";
 

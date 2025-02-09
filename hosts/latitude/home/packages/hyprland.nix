@@ -38,6 +38,9 @@
       ];
 
       "$terminal" = "kitty";
+      "$browser" = "firefox";
+      "$files" = "nautilus";
+      "$editor" = "code";
 
       input = {
         "kb_model" = "pc104";
@@ -69,15 +72,19 @@
         "$mod, M, exit,"
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod, Q, killactive,"
-        "$mod, S, exec, code"
+        "$mod, S, exec, $editor"
         "$mod, Return, fullscreen, 1"
         "$mod, Tab, togglefloating,"
+        "$mod, mouse:274, splitratio, exact 1.0"
+        "$mod SHIFT, W, exec, switch-wallpaper.sh"
+        "$mod, B, exec, $browser"
+        "$mod, F, exec, $files"
 
         # Switch to next/previous workspace on monitor
-        "$mod ALT, right, workspace, r+1"
-        "$mod ALT, up, workspace, r+1"
-        "$mod ALT, left, workspace, r-1"
-        "$mod ALT, down, workspace, r-1"
+        "CONTROL $mod, right, workspace, r+1"
+        "CONTROL $mod, up, workspace, r+1"
+        "CONTROL $mod, left, workspace, r-1"
+        "CONTROL $mod, down, workspace, r-1"
 
         # Move focus
         "$mod, up, movefocus, u"
@@ -86,14 +93,36 @@
         "$mod, left, movefocus, l"
 
         # Swap windows
-        "CONTROL $mod, up, swapwindow, u"
-        "CONTROL $mod, right, swapwindow, r"
-        "CONTROL $mod, down, swapwindow, d"
-        "CONTROL $mod, left, swapwindow, l"
+        "$mod ALT, up, swapwindow, u"
+        "$mod ALT, right, swapwindow, r"
+        "$mod ALT, down, swapwindow, d"
+        "$mod ALT, left, swapwindow, l"
+
+        # Alt-Tab feature
+        "ALT, Tab, cyclenext,"
+        "ALT, Tab, bringactivetotop,"
       ];
 
       bindr = [
         "SUPER, Super_L, exec, pkill rofi || rofi -show drun"
+      ];
+
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
+
+      bindel = [
+        # Change brightness
+        ", XF86MonBrightnessUp, exec, xbacklight +5"
+        ", XF86MonBrightnessDown, exec, xbacklight -5"
+
+        # Change audio volume
+        ", XF86AudioRaiseVolume, exec, pamixer -i 1"
+        ", XF86AudioLowerVolume, exec, pamixer -d 1"
+        "CONTROL, XF86AudioRaiseVolume, exec, pamixer -i 5"
+        "CONTROL, XF86AudioLowerVolume, exec, pamixer -d 5"
+        ", XF86AudioMute, exec, pamixer -t"
       ];
     };
   };

@@ -23,9 +23,6 @@
     bash = {
       enable = true;
       enableCompletion = true;
-      initExtra = ''
-        PATH="$PATH:$HOME/Scripts"
-      '';
 
       # shellAliases = {};
     };
@@ -34,7 +31,7 @@
       enable = true;
       font = {
         name = "JetBrainsMono Nerd Font";
-        size = 10;
+        size = 9;
       };
       shellIntegration.enableBashIntegration = true;
       themeFile = "Catppuccin-Mocha";
@@ -60,5 +57,6 @@
     hyprland-qt-support
     libsForQt5.qt5ct
     libsForQt5.qtstyleplugin-kvantum
+    pamixer
   ];
 }

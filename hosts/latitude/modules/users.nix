@@ -7,14 +7,21 @@
   ...
 }: {
   # Extra groups
-  users.groups.nixconf = {};
+  users.groups.video = {};
 
   # User accounts
   # Don't forget to set a password with ‘passwd’!
   users.users.matyashorvath = {
     isNormalUser = true;
     description = "Mátyás Horváth";
-    extraGroups = ["networkmanager" "wheel" "nixconf"];
+    extraGroups = ["networkmanager" "wheel" "video"];
     packages = with pkgs; [];
   };
+
+  # Required for backlight to be controllable by users
+  services.udev.extraRules = ''
+    SUBSYSTEM=="backlight", ACTION=="add", \
+    RUN+="${pkgs.coreutils-full}/bin/chgrp video /sys/class/backlight/%k/brightness", \
+    RUN+="${pkgs.coreutils-full}/bin/chmod g+w /sys/class/backlight/%k/brightness"
+  '';
 }
