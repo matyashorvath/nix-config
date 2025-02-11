@@ -46,12 +46,12 @@
     specialArgs = {
       inherit inputs;
 
-      pkgs-stable = {
+      pkgs-stable = import nixpkgs-stable {
         inherit system;
         config.allowUnfree = true;
       };
 
-      pkgs-unstable = {
+      pkgs-unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };

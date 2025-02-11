@@ -35,6 +35,33 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # WireGuard config
+  networking.wireguard = {
+    enable = true;
+    interfaces = {
+      wg0 = {
+        ips = ["10.0.0.4/32"];
+        listenPort = 39680;
+        privateKeyFile = "/etc/nixos/secrets/wg-keys/private";
+
+        peers = [
+          {
+            publicKey = builtins.readFile ../../../secrets/wg-keys/rpi.pub;
+            allowedIPs = ["10.0.0.0/32"];
+            endpoint = "floppa.dnet.hu:39680";
+            persistentKeepalive = 25;
+          }
+          {
+            publicKey = builtins.readFile ../../../secrets/wg-keys/pc.pub;
+            allowedIPs = ["10.0.0.2/32"];
+            endpoint = "floppa.dnet.hu:39681";
+            persistentKeepalive = 25;
+          }
+        ];
+      };
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Budapest";
 
@@ -77,7 +104,7 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [51820];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

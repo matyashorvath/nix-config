@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+ip_home=192.168.1.192
+ip_public=10.0.0.0
+user=matyashorvath
+path=/home/${user}/Scripts
+
+if [ "$(ping -c 1 -W 1 ${ip_home} | grep received | awk '{ print $4 }')" = "1" ]; then
+    ip=$ip_home
+else
+    ip=$ip_public
+fi
+
+case $1 in
+    led)
+        sys_flag=$(uname -r | awk -F"-" '{print $3}')
+        if [ "${sys_flag}" != "rpi" ]; then
+            case $2 in
+                on)
+                    ssh ${user}@${ip} 'bash -s led on' < $path/rpi
+                    ;;
+                off)
+                    ssh ${user}@${ip} 'bash -s led off' < $path/rpi
+                    ;;
+                *)
+                    ssh ${user}@${ip} 'bash -s led' < $path/rpi
+                    ;;
+            esac
+        elif [ "${sys_flag}" == "rpi" ]; then
+            export CMDNAME="rpi led"
+            ledctl $2
+            if [ "$2" != "" ]; then
+                echo "rpi: Turned $2 LEDs."
+            fi
+        fi
+        ;;
+    --help)
+        echo -e "rpi: Options:\t[led on||off] Turn on/off the power and activity leds.
+\t\t[sh <command>] Run commands on the Raspberry Pi through SSH as the default user.
+\t\t[ssh <user>] Establish an SSH connection with the server (as default user if not specified)."
+        ;;
+    sh)
+        echo "${@:2}" | ssh ${user}@${ip} /bin/bash
+        ;;
+    ssh)
+        if [ "$2" != "" ]; then
+            user=$2
+        fi
+        ssh ${user}@${ip}
+        ;;
+    *)
+        echo "rpi: Type 'rpi --help' for more information."
+        ;;
+esac

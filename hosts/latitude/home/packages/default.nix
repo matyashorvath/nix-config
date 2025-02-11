@@ -61,5 +61,7 @@
     libsForQt5.qt5ct
     libsForQt5.qtstyleplugin-kvantum
     pamixer
+    moonlight-qt
+    git-crypt
   ];
 }
