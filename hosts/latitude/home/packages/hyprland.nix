@@ -30,6 +30,9 @@
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "NIXOS_OZONE_WL,1"
         "ELECTRON_OZONE_PLATFORM_HINT,wayland"
+        # TODO: place theme directory in the nix store for reproducibility
+        "HYPRCURSOR_THEME,Future-Cyan-Hyprcursor_Theme"
+        "HYPRCURSOR_SIZE,30"
       ];
 
       monitor = [
