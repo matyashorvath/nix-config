@@ -145,6 +145,20 @@
        #battery.low {
                color: rgb(242, 123, 123);
              }
+       #custom-pprofile {
+               color: rgb(36, 58, 85);
+             }
+       #custom-pprofile.pows {
+               color: rgb(120, 204, 127);
+             }
+       #custom-pprofile.baln {
+               font-size: 14pt;
+               color: rgb(77, 113, 156);
+             }
+       #custom-pprofile.perf {
+               font-size: 14pt;
+               color: rgb(134, 99, 183);
+             }
     '';
 
     settings = [
@@ -155,8 +169,9 @@
           "custom/launcher"
           "temperature"
           "battery"
-          "mpd"
-          "custom/cava-internal"
+          "custom/pprofile"
+          #"mpd"
+          #"custom/cava-internal"
         ];
         modules-center = [
           "clock"
@@ -249,6 +264,14 @@
           "states" = {
             "low" = 20;
           };
+        };
+        "custom/pprofile" = {
+          "format" = "{icon} ";
+          "format-icons" = ["" "󰾅" "󰓅"];
+          "interval" = 1;
+          "on-click" = "roll-pprofiles.sh";
+          "exec" = "currentprofileout.sh";
+          "return-type" = "json";
         };
       }
     ];

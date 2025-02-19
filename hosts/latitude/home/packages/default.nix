@@ -63,5 +63,6 @@
     pamixer
     moonlight-qt
     git-crypt
+    chromium
   ];
 }
