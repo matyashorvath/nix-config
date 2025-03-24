@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# distrobox_binary
+# name: ubuntu
+
+if [ -z "${CONTAINER_ID}" ]; then
+	exec "/etc/profiles/per-user/matyashorvath/bin/distrobox-enter"  -n ubuntu  --  '/home/matyashorvath/Scripts/matlab-init.sh'  "$@"
+elif [ -n "${CONTAINER_ID}" ] && [ "${CONTAINER_ID}" != "ubuntu" ]; then
+	exec distrobox-host-exec '/home/matyashorvath/Scripts/matlab' "$@"
+else
+	/home/matyashorvath/Scripts/matlab-init.sh
+fi

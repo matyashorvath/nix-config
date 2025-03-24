@@ -36,7 +36,8 @@ case $1 in
     --help)
         echo -e "rpi: Options:\t[led on||off] Turn on/off the power and activity leds.
 \t\t[sh <command>] Run commands on the Raspberry Pi through SSH as the default user.
-\t\t[ssh <user>] Establish an SSH connection with the server (as default user if not specified)."
+\t\t[ssh <user>] Establish an SSH connection with the server (as default user if not specified).
+\t\t[wakedesk] Wake up the home desktop computer using Wake-on-LAN."
         ;;
     sh)
         echo "${@:2}" | ssh ${user}@${ip} /bin/bash
@@ -47,6 +48,9 @@ case $1 in
         fi
         ssh ${user}@${ip}
         ;;
+    wakedesk)
+	rpi sh wol-desktop
+	;;
     *)
         echo "rpi: Type 'rpi --help' for more information."
         ;;

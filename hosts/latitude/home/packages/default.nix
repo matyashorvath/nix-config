@@ -27,7 +27,9 @@
         export TERM=xterm-256color
       '';
 
-      # shellAliases = {};
+      shellAliases = {
+        wg-r = "sudo systemctl restart wireguard-wg0.service";
+      };
     };
 
     kitty = {
@@ -64,5 +66,8 @@
     moonlight-qt
     git-crypt
     chromium
+    distrobox
+    distrobox-tui
+    wine-wayland
   ];
 }

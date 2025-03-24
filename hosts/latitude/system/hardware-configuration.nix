@@ -52,7 +52,6 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  # TODO: replace 'pkgs' with 'pkgs-stable' after flake update!
   hardware.graphics.extraPackages = with pkgs; [
     intel-media-driver
   ];
