@@ -49,8 +49,8 @@ case $1 in
         ssh ${user}@${ip}
         ;;
     wakedesk)
-	rpi sh wol-desktop
-	;;
+	    rpi sh wol-desktop
+	    ;;
     *)
         echo "rpi: Type 'rpi --help' for more information."
         ;;
