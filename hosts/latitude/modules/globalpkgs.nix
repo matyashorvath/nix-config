@@ -41,6 +41,13 @@
     python3
     udiskie
     acpilight
+
+    # SDR related
+    sox
+    tinycc
+    netcat-openbsd
+    rtl-sdr
+    gnuradio
   ];
 
   programs = {
@@ -48,6 +55,13 @@
       enable = true;
       # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    };
+
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
     };
   };
 

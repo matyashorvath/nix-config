@@ -8,13 +8,19 @@
 }: {
   # Extra groups
   users.groups.video = {};
+  users.groups.plugdev = {};
 
   # User accounts
   # Don't forget to set a password with ‘passwd’!
   users.users.matyashorvath = {
     isNormalUser = true;
     description = "Mátyás Horváth";
-    extraGroups = ["networkmanager" "wheel" "video"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "plugdev"
+    ];
     packages = with pkgs; [];
   };
 

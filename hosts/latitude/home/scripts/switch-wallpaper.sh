@@ -1,19 +1,31 @@
 #!/usr/bin/env bash
 
-picturePath="$HOME/Pictures/"
-wallpapers=("39.jpg" "mountains.jpg")
-wpStore="/tmp/wallpapers"
+picturePath="$HOME/Pictures/Wallpapers"
 
-if [ ! -e $wpStore ]; then
-    wpCat="";
-    for i in ${wallpapers[@]}; do
-        wpCat+="${i}\n"
+getWallpapers() {
+    wpArr=()
+    for (( i=0; ; i++ )); do
+        element=$(ls ${picturePath} | sed -ne "$(( i+1 ))p")
+        if [ "${element}" == "" ]; then
+            break
+        fi
+        wpArr[${i}]=$element
     done
-    echo -e $wpCat >$wpStore
-fi
+}
 
-currentWp=$(awk 'BEGIN {RS = ""} {print $1}' $wpStore)
-nextWp=$(awk 'BEGIN {RS = ""} {print $2}' $wpStore)
+getCurrentWpNum() {
+    currentWpNum=0
+    currentWallpaper=$(hyprctl hyprpaper listactive | sed -ne "1p" | awk '{print $2}' | awk -F"/" '{print $NF}')
+    for (( i=0; i<${#wpArr[*]}; i++ )); do
+        if [ "${currentWallpaper}" == "${wpArr[${i}]}" ]; then
+            currentWpNum=$i
+            break
+        fi
+    done
+}
 
-hyprctl hyprpaper reload ,$picturePath/$nextWp
-echo -e "${nextWp}\n${currentWp}" >$wpStore
+getWallpapers
+getCurrentWpNum
+wpArrLen=${#wpArr[*]}
+
+hyprctl hyprpaper reload ,$picturePath/${wpArr[$(( (currentWpNum+1) % wpArrLen ))]}
