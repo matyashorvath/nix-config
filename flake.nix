@@ -21,6 +21,11 @@
     alejandra.url = "github:kamadorueda/alejandra/3.1.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgs-unstable";
     catppuccin.url = "github:catppuccin/nix";
+
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -34,13 +39,14 @@
     hyprpicker,
     alejandra,
     catppuccin,
+    winapps,
     ...
   }: let
     lib = nixpkgs.lib;
     lib-stable = nixpkgs-stable.lib;
     lib-unstable = nixpkgs-unstable.lib;
 
-    system = "x86-64-linux";
+    system = "x86_64-linux";
     username = "matyashorvath";
 
     inherit inputs;
@@ -49,7 +55,6 @@
       inherit system;
       config.allowUnfree = true;
     };
-
     pkgs-unstable = import nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
@@ -76,11 +81,15 @@
                 users.${username} = {
                   imports = [
                     ./hosts/${hostname}/home/home.nix
-                    catppuccin.homeManagerModules.catppuccin
+                    catppuccin.homeModules.catppuccin
                   ];
                 };
                 backupFileExtension = "backup";
-                extraSpecialArgs = {inherit inputs;};
+                extraSpecialArgs = {
+                  inherit inputs;
+                  inherit pkgs-stable;
+                  inherit pkgs-unstable;
+                };
               };
             }
           ];

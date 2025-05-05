@@ -17,6 +17,7 @@
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc"];
   boot.initrd.kernelModules = [];
+  #boot.blacklistedKernelModules = ["dvb_usb_rtl28xxu"];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
@@ -52,7 +53,7 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.graphics.extraPackages = with pkgs; [
+  hardware.graphics.extraPackages = with pkgs-stable; [
     intel-media-driver
   ];
 
@@ -60,4 +61,6 @@
     enable = true;
     powerOnBoot = true;
   };
+
+  hardware.rtl-sdr.enable = true;
 }

@@ -41,6 +41,14 @@
     python3
     udiskie
     acpilight
+    alsa-utils
+    dialog
+    iproute2
+    libnotify
+    netcat-gnu
+    openssl
+    openssl_3
+    openssl_legacy
 
     # SDR related
     sox

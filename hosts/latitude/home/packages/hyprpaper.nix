@@ -13,8 +13,8 @@
       ipc = "on";
       splash = false;
 
-      preload = ["~/Pictures/39.jpg"];
-      wallpaper = [",~/Pictures/39.jpg"];
+      preload = ["~/Pictures/Wallpapers/39.jpg"];
+      wallpaper = [",~/Pictures/Wallpapers/39.jpg"];
     };
   };
 }

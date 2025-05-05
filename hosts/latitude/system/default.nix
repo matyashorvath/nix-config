@@ -103,8 +103,14 @@
   # services.xserver.libinput.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.allowedUDPPorts = [51820];
+  networking.firewall.allowedTCPPorts = [
+    3389
+  ];
+  networking.firewall.allowedUDPPorts = [
+    51820
+    3389
+  ];
+
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
@@ -119,8 +125,14 @@
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
 
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://winapps.cachix.org/"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "winapps.cachix.org-1:HI82jWrXZsQRar/PChgIx1unmuEsiQMQq+zt05CD36g="
+    ];
   };
 
   virtualisation = {

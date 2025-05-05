@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 picturePath="$HOME/Pictures/Wallpapers"
-currentWallpaper=$(hyprctl hyprpaper listactive | sed -ne "1p" | awk '{print $2}' | awk -F"/" '{print $NF}')
+currentWallpaper=$(hyprctl hyprpaper listactive | sed -ne "1p" | awk '{print $NF}' | awk -F"/" '{print $NF}')
 wpArr=()
 currentWpNum=0
 

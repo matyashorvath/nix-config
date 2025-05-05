@@ -43,31 +43,36 @@
     };
   };
 
-  home.packages = with pkgs; [
-    vscode
-    fastfetch
-    thunderbird
-    gparted
-    inputs.alejandra.defaultPackage.${system}
-    git-credential-oauth
-    vmware-workstation
-    kitty-themes
-    inputs.hyprpaper.packages.${system}.hyprpaper
-    inputs.hyprpicker.packages.${system}.hyprpicker
-    wl-clipboard
-    wl-clip-persist
-    cliphist
-    mako
-    hyprsysteminfo
-    hyprland-qt-support
-    libsForQt5.qt5ct
-    libsForQt5.qtstyleplugin-kvantum
-    pamixer
-    moonlight-qt
-    git-crypt
-    chromium
-    distrobox
-    distrobox-tui
-    wine-wayland
-  ];
+  home.packages =
+    (with pkgs; [
+      vscode
+      fastfetch
+      thunderbird
+      gparted
+      inputs.alejandra.defaultPackage.${system}
+      git-credential-oauth
+      vmware-workstation
+      kitty-themes
+      inputs.hyprpaper.packages.${system}.hyprpaper
+      inputs.hyprpicker.packages.${system}.hyprpicker
+      wl-clipboard
+      wl-clip-persist
+      cliphist
+      mako
+      hyprsysteminfo
+      hyprland-qt-support
+      libsForQt5.qt5ct
+      libsForQt5.qtstyleplugin-kvantum
+      pamixer
+      moonlight-qt
+      git-crypt
+      chromium
+      distrobox
+      distrobox-tui
+      wine-wayland
+      inputs.winapps.packages."${system}".winapps
+    ])
+    ++ (with pkgs-stable; [
+      freerdp3
+    ]);
 }
