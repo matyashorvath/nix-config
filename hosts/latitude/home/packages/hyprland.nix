@@ -23,6 +23,9 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "waybar & hyprpaper"
+
+        # Temporary fix for XCURSOR_SIZE
+        "dconf write /org/gnome/desktop/interface/cursor-size 24"
       ];
 
       env = [
@@ -33,6 +36,8 @@
         # TODO: place theme directory in the nix store for reproducibility
         "HYPRCURSOR_THEME,Future-Cyan-Hyprcursor_Theme"
         "HYPRCURSOR_SIZE,30"
+        "XCURSOR_THEME,Future-cursors"
+        "XCURSOR_SIZE,24"
       ];
 
       monitor = [
@@ -127,6 +132,10 @@
         "CONTROL, XF86AudioLowerVolume, exec, pamixer -d 5"
         ", XF86AudioMute, exec, pamixer -t"
       ];
+
+      debug = {
+        "disable_logs" = false;
+      };
     };
   };
 }
