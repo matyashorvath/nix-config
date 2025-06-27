@@ -15,7 +15,7 @@
     displayManager.sddm.enable = true;
 
     # Enable the GNOME Desktop Environment.
-    xserver.desktopManager.gnome.enable = true;
+    desktopManager.gnome.enable = true;
 
     # Configure keymap in X11
     xserver.xkb = {
@@ -71,6 +71,8 @@
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
     };
+
+    nix-ld.enable = true;
   };
 
   fonts.packages = with pkgs; [

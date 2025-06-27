@@ -71,5 +71,8 @@
     distrobox-tui
     wine-wayland
     inputs.winapps.packages."${system}".winapps
+    gnumake
+    gdb
+    ppsspp-sdl-wayland
   ];
 }
