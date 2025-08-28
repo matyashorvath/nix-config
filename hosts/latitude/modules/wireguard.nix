@@ -12,7 +12,7 @@
       wg0 = {
         ips = ["10.0.0.4/32"];
         listenPort = 39680;
-        privateKeyFile = "/etc/nixos/secrets/wg-keys/private";
+        privateKeyFile = "/etc/nixos/secrets/wg-keys/lat";
 
         peers = [
           {
