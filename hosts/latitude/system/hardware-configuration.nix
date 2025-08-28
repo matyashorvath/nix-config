@@ -21,22 +21,24 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/191bf959-2c67-44f6-8db0-35e27d2718b3";
-    fsType = "btrfs";
-    options = ["subvol=@"];
-  };
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/191bf959-2c67-44f6-8db0-35e27d2718b3";
+      fsType = "btrfs";
+      options = ["subvol=@"];
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/AAFC-EFF4";
-    fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
-  };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/AAFC-EFF4";
+      fsType = "vfat";
+      options = ["fmask=0077" "dmask=0077"];
+    };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/191bf959-2c67-44f6-8db0-35e27d2718b3";
-    fsType = "btrfs";
-    options = ["subvol=@home"];
+    "/home" = {
+      device = "/dev/disk/by-uuid/191bf959-2c67-44f6-8db0-35e27d2718b3";
+      fsType = "btrfs";
+      options = ["subvol=@home"];
+    };
   };
 
   swapDevices = [

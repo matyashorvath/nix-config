@@ -1,7 +1,6 @@
 {
   imports = [
     ./globalpkgs.nix
-    ./udev-rules.nix
     ./wireguard.nix
   ];
 }

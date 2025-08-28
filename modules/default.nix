@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./garbage-collect.nix
+  ];
+}

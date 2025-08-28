@@ -47,7 +47,7 @@
     lib-unstable = nixpkgs-unstable.lib;
 
     system = "x86_64-linux";
-    username = "matyashorvath";
+    mainUsername = "matyashorvath";
 
     inherit inputs;
 
@@ -78,7 +78,40 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.${username} = {
+                users.${mainUsername} = {
+                  imports = [
+                    ./hosts/${hostname}/home/home.nix
+                    catppuccin.homeModules.catppuccin
+                  ];
+                };
+                backupFileExtension = "backup";
+                extraSpecialArgs = {
+                  inherit inputs;
+                  inherit pkgs-stable;
+                  inherit pkgs-unstable;
+                };
+              };
+            }
+          ];
+        };
+      home-desktop = let
+        hostname = "home-desktop";
+      in
+        lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit system;
+            inherit pkgs-stable;
+            inherit pkgs-unstable;
+          };
+          modules = [
+            ./hosts/${hostname}/system
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${mainUsername} = {
                   imports = [
                     ./hosts/${hostname}/home/home.nix
                     catppuccin.homeModules.catppuccin

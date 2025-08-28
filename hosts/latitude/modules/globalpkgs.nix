@@ -6,27 +6,6 @@
   inputs,
   ...
 }: {
-  # Install & configure system services here
-
-  services = {
-    # Enable the X11 windowing system.
-    xserver.enable = true;
-
-    displayManager.sddm.enable = true;
-
-    # Enable the GNOME Desktop Environment.
-    desktopManager.gnome.enable = true;
-
-    # Configure keymap in X11
-    xserver.xkb = {
-      layout = "hu";
-      variant = "";
-    };
-
-    # Enable CUPS to print documents.
-    printing.enable = true;
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   # Programs installed in the system profile
