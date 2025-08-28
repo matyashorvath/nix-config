@@ -13,7 +13,7 @@
       ips = [ "10.0.0.2/32" ];
 
       # The port that WireGuard listens to. Must be accessible by the client.
-      listenPort = 39680;
+      listenPort = 39681;
 
       # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
       # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients

@@ -21,7 +21,7 @@
     3389
   ];
   networking.firewall.allowedUDPPorts = [
-    39680
+    39681
     3389
   ];
 

@@ -40,7 +40,7 @@
     };
 
     # Enable the OpenSSH daemon.
-    services.openssh.enable = true;
+    openssh.enable = true;
   };
 
   # Required for audio

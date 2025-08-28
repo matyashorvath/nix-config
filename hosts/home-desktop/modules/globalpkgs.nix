@@ -13,7 +13,12 @@
     vim
     wget
     git
-    vscode
-    firefox
+    fastfetch
+    gparted
+    git-crypt
+    wine-wayland
+    gnumake
+    gdb
+    python3
   ];
 }

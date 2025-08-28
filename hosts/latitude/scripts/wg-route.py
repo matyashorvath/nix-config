@@ -9,6 +9,7 @@ def ipgrep(togrep):
 def main():
     geteps = subprocess.Popen(["wg", "show", "wg0", "endpoints"], stdout=subprocess.PIPE)
     eps = str(geteps.communicate()[0]).split("'")[1].split('\\n')
+    print(eps)
     eps.pop(2)
     eps = [ i.split('\\t')[1].split(':')[0] for i in eps ]
     endpoints = []
