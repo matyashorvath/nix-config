@@ -15,7 +15,7 @@
     displayManager.sddm.enable = true;
     desktopManager.plasma6.enable = true;
 
-      # Configure keymap in X11
+    # Configure keymap in X11
     xserver.xkb = {
       layout = "hu";
       variant = "";

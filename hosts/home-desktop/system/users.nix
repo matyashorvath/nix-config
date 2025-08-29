@@ -10,11 +10,11 @@
   users.users.matyashorvath = {
     isNormalUser = true;
     description = "Matyas Horvath";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       kdePackages.kate
       gparted
-    #  thunderbird
+      #  thunderbird
     ];
   };
 }

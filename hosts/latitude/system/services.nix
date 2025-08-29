@@ -44,7 +44,7 @@
     # Enable touchpad support (enabled default in most desktopManager).
     # xserver.libinput.enable = true;
   };
-  
+
   # Required for sound
   security.rtkit.enable = true;
 }

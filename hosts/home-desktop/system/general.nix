@@ -1,7 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   config,
   pkgs,
@@ -9,10 +8,8 @@
   pkgs-unstable,
   inputs,
   ...
-}:
-
-{
-  imports = [ 
+}: {
+  imports = [
     ../modules
     ../../../modules
 
@@ -49,7 +46,7 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = ["nix-command" "flakes"];
 
     substituters = [
       "https://winapps.cachix.org/"
