@@ -17,13 +17,27 @@
   networking.networkmanager.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    3389
-  ];
-  networking.firewall.allowedUDPPorts = [
-    39681
-    3389
-  ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      3389
+    ];
+    allowedUDPPorts = [
+      39681
+      3389
+    ];
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+  };
 
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

@@ -31,5 +31,9 @@
     distrobox-tui
     inputs.winapps.packages."${system}".winapps
     kdePackages.plasma-browser-integration
+    kdePackages.kate
+    gparted
+    kicad
+    discord
   ];
 }

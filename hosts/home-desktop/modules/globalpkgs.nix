@@ -9,6 +9,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  programs = {
+    kdeconnect.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     vim
     wget

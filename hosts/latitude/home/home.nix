@@ -15,7 +15,8 @@
     homeDirectory = "/home/matyashorvath";
 
     sessionPath = [
-      "$HOME/Scripts"
+      "$HOME/Scripts/global"
+      "$HOME/Scripts/local"
     ];
 
     stateVersion = "24.11";
