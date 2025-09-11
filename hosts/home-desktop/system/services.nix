@@ -12,7 +12,10 @@
     xserver.enable = true;
 
     # Enable the KDE Plasma Desktop Environment.
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      autoNumlock = true;
+    };
     desktopManager.plasma6.enable = true;
 
     # Configure keymap in X11

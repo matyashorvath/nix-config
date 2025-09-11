@@ -36,10 +36,22 @@
       options = ["uid=1000" "gid=1000" "rw" "user" "exec" "umask=000"];
     };
 
+    "/media/M.2" = {
+      device = "/dev/disk/by-uuid/3456D75256D71388";
+      fsType = "ntfs";
+      options = ["uid=1000" "gid=1000" "rw" "user" "exec" "umask=000"];
+    };
+
     "/boot" = {
       device = "/dev/disk/by-uuid/E760-B01A";
       fsType = "vfat";
       options = ["fmask=0077" "dmask=0077"];
+    };
+
+    "/media/RPi-NAS" = {
+      device = "192.168.1.192:/raid_storage/shared";
+      fsType = "nfs";
+      options = ["rw" "hard" "intr" "timeo=10"];
     };
   };
 

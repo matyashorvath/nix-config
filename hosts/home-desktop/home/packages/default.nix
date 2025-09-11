@@ -6,6 +6,10 @@
   inputs,
   ...
 }: {
+  imports = [
+    ./git.nix
+  ];
+
   programs = {
     home-manager.enable = true;
 
@@ -21,19 +25,54 @@
     };
   };
 
-  home.packages = with pkgs; [
-    vscode
-    thunderbird
-    inputs.alejandra.defaultPackage.${system}
-    vmware-workstation
-    chromium
-    distrobox
-    distrobox-tui
-    inputs.winapps.packages."${system}".winapps
-    kdePackages.plasma-browser-integration
-    kdePackages.kate
-    gparted
-    kicad
-    discord
-  ];
+  home.packages =
+    (with pkgs; [
+      vscode
+      thunderbird
+      inputs.alejandra.defaultPackage.${system}
+      vmware-workstation
+      chromium
+      distrobox
+      distrobox-tui
+      inputs.winapps.packages."${system}".winapps
+      gparted
+      kicad
+      discord
+      mpv
+      telegram-desktop
+      steam
+      imhex
+      kstars
+      stellarium
+      superTuxKart
+      gimp3
+      inkscape
+      libreoffice-qt-fresh
+      sunshine
+      deluge
+      viber
+      audacity
+      vlc
+      obs-studio
+      puddletag
+      shotcut
+      scantailor-universal
+      wpsoffice
+      squeekboard
+      rpi-imager
+    ])
+    ++ (with pkgs.kdePackages; [
+      # KDE Plasma packages
+      plasma-browser-integration
+      kate
+      wallpaper-engine-plugin
+      kcalc
+      kpat
+      kmines
+      krdc
+      dragon
+      k3b
+      filelight
+      partitionmanager
+    ]);
 }

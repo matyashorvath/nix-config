@@ -7,7 +7,13 @@
   ...
 }: {
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "dotnet-sdk-6.0.428"
+      "dotnet-runtime-6.0.36"
+    ];
+  };
 
   programs = {
     kdeconnect.enable = true;
@@ -24,5 +30,9 @@
     gnumake
     gdb
     python3
+    wineWowPackages.waylandFull
+    nsnake
+    htop
+    openra
   ];
 }
