@@ -40,7 +40,6 @@
       discord
       mpv
       telegram-desktop
-      steam
       imhex
       kstars
       stellarium
