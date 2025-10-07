@@ -35,5 +35,6 @@
     nsnake
     htop
     openra
+    nix-search-cli
   ];
 }

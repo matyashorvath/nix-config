@@ -10,6 +10,6 @@
   users.users.matyashorvath = {
     isNormalUser = true;
     description = "Mátyás Horváth";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "vboxusers"];
   };
 }

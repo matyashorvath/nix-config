@@ -63,5 +63,19 @@
       enable = true;
       dockerCompat = true;
     };
+
+    virtualbox.host.enable = true;
   };
+
+  security.sudo.extraRules = [
+    {
+      users = ["matyashorvath"];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/shutdown";
+          options = ["NOPASSWD"];
+        }
+      ];
+    }
+  ];
 }

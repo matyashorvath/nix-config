@@ -16,6 +16,7 @@
 
     sessionPath = [
       "$HOME/Scripts/global"
+      "$HOME/Scripts/local"
     ];
 
     stateVersion = "25.05";

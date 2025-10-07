@@ -59,6 +59,8 @@
       wpsoffice
       squeekboard
       rpi-imager
+      baobab
+      qdirstat
     ])
     ++ (with pkgs.kdePackages; [
       # KDE Plasma packages
