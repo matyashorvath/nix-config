@@ -15,6 +15,10 @@
     displayManager.sddm = {
       enable = true;
       autoNumlock = true;
+      autoLogin = {
+        enable = true;
+        user = "matyashorvath";
+      };
     };
     desktopManager.plasma6.enable = true;
 

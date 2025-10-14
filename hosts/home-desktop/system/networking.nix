@@ -46,4 +46,7 @@
   networking.nat.enable = true;
   networking.nat.externalInterface = "eth0";
   networking.nat.internalInterfaces = ["wg0"];
+
+  # enable Wake-on-LAN
+  networking.interfaces.enp39s0.wakeOnLan.enable = true;
 }
