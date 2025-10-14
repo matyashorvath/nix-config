@@ -15,10 +15,10 @@
     displayManager.sddm = {
       enable = true;
       autoNumlock = true;
-      autoLogin = {
-        enable = true;
-        user = "matyashorvath";
-      };
+    };
+    displayManager.autoLogin = {
+      enable = true;
+      user = "matyashorvath";
     };
     desktopManager.plasma6.enable = true;
 
@@ -48,6 +48,14 @@
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
+
+    # Sunshine streaming
+    sunshine = {
+      enable = true;
+      autoStart = true;
+      capSysAdmin = true;
+      openFirewall = true;
+    };
   };
 
   # Required for audio
