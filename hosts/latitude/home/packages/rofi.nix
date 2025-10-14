@@ -8,7 +8,7 @@
 }: {
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
 
     configPath = ".config/rofi/config.rasi";
     font = "JetBrainsMono Nerd Font 9";
