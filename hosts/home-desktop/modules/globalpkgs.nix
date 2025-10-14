@@ -36,5 +36,7 @@
     htop
     openra
     nix-search-cli
+    poppler-utils
+    pdftk
   ];
 }
