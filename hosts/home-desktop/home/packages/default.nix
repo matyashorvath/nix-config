@@ -36,7 +36,6 @@
       distrobox-tui
       inputs.winapps.packages."${system}".winapps
       gparted
-      kicad
       discord
       mpv
       telegram-desktop
@@ -58,9 +57,9 @@
       scantailor-universal
       wpsoffice
       squeekboard
-      rpi-imager
       baobab
       qdirstat
+      python313Packages.f3d
     ])
     ++ (with pkgs.kdePackages; [
       # KDE Plasma packages
@@ -75,5 +74,9 @@
       k3b
       filelight
       partitionmanager
+    ])
+    ++ (with pkgs-stable; [
+      kicad
+      rpi-imager
     ]);
 }
