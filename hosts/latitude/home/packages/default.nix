@@ -26,6 +26,7 @@
       enableCompletion = true;
       bashrcExtra = ''
         export TERM=xterm-256color
+        export PATH=$PATH:/home/matyashorvath/Scripts/local:/home/matyashorvath/Scripts/global
       '';
 
       shellAliases = {
@@ -74,5 +75,6 @@
     gnumake
     gdb
     ppsspp-sdl-wayland
+    discord
   ];
 }
