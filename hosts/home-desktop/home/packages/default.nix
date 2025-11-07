@@ -60,6 +60,7 @@
       baobab
       qdirstat
       python313Packages.f3d
+      openrocket
     ])
     ++ (with pkgs.kdePackages; [
       # KDE Plasma packages
