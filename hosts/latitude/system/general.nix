@@ -6,6 +6,7 @@
   pkgs,
   pkgs-stable,
   pkgs-unstable,
+  lib,
   inputs,
   ...
 }: {
@@ -55,4 +56,6 @@
       dockerCompat = true;
     };
   };
+
+  security.lsm = lib.mkForce [];
 }

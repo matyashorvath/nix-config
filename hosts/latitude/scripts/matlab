@@ -3,9 +3,9 @@
 # name: ubuntu
 
 if [ -z "${CONTAINER_ID}" ]; then
-	exec "/etc/profiles/per-user/matyashorvath/bin/distrobox-enter"  -n ubuntu  --  '/home/matyashorvath/Scripts/matlab-init.sh'  "$@"
+	exec "/etc/profiles/per-user/matyashorvath/bin/distrobox-enter"  -n ubuntu  --  '/home/matyashorvath/Scripts/local/matlab-init.sh'  "$@"
 elif [ -n "${CONTAINER_ID}" ] && [ "${CONTAINER_ID}" != "ubuntu" ]; then
-	exec distrobox-host-exec '/home/matyashorvath/Scripts/matlab' "$@"
+	exec distrobox-host-exec '/home/matyashorvath/Scripts/local/matlab' "$@"
 else
 	/home/matyashorvath/Scripts/matlab-init.sh
 fi

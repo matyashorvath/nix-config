@@ -19,8 +19,6 @@
   programs = {
     home-manager.enable = true;
 
-    firefox.enable = true;
-
     bash = {
       enable = true;
       enableCompletion = true;
@@ -70,11 +68,13 @@
     chromium
     distrobox
     distrobox-tui
-    wine-wayland
+    wineWow64Packages.waylandFull
     inputs.winapps.packages."${system}".winapps
     gnumake
     gdb
     ppsspp-sdl-wayland
     discord
+    mpv
+    imhex
   ];
 }

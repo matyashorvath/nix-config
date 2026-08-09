@@ -23,6 +23,8 @@
       variant = "";
     };
 
+    gnome.gnome-browser-connector.enable = true;
+
     # Enable CUPS to print documents.
     printing.enable = true;
 
@@ -47,4 +49,16 @@
 
   # Required for sound
   security.rtkit.enable = true;
+
+  systemd.services.virtualhere-server = {
+    description = "VirtualHere Server";
+    after = ["network.target"];
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      Type = "forking";
+      ExecStart = "/opt/virtualhere/vhusbdx86_64 -b -c /opt/virtualhere/config.ini";
+      Restart = "always";
+      User = "root";
+    };
+  };
 }

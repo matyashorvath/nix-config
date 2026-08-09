@@ -20,6 +20,8 @@
       "wheel"
       "video"
       "plugdev"
+      "dialout"
+      "uucp"
     ];
     packages = with pkgs; [];
   };

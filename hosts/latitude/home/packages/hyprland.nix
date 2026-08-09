@@ -8,8 +8,8 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = null;
-    portalPackage = null;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
 
     settings = {
@@ -61,7 +61,7 @@
         "focus_on_close" = 1;
 
         touchpad = {
-          "disable_while_typing" = true;
+          "disable_while_typing" = false;
           "natural_scroll" = true;
           "scroll_factor" = 1.0;
           "tap-to-click" = true;

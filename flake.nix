@@ -68,6 +68,7 @@
           inherit system;
           specialArgs = {
             inherit system;
+            inherit inputs;
             inherit pkgs-stable;
             inherit pkgs-unstable;
           };
