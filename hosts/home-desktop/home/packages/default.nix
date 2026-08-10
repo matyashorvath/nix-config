@@ -61,6 +61,7 @@
       qdirstat
       python313Packages.f3d
       openrocket
+      dosbox
     ])
     ++ (with pkgs.kdePackages; [
       # KDE Plasma packages
@@ -74,7 +75,6 @@
       dragon
       k3b
       filelight
-      partitionmanager
     ])
     ++ (with pkgs-stable; [
       kicad
