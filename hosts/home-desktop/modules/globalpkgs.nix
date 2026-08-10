@@ -18,6 +18,7 @@
   programs = {
     kdeconnect.enable = true;
     steam.enable = true;
+    partition-manager.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -27,7 +28,6 @@
     fastfetch
     gparted
     git-crypt
-    wine-wayland
     gnumake
     gdb
     python3
@@ -38,5 +38,6 @@
     nix-search-cli
     poppler-utils
     pdftk
+    texliveFull
   ];
 }
