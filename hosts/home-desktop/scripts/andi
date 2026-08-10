@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd /media/RPi-NAS/University/JR1-2/ANDI/
+dosbox -conf dosbox.conf
