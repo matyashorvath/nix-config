@@ -12,10 +12,9 @@
     # Enable the X11 windowing system.
     xserver.enable = true;
 
-    displayManager.sddm.enable = true;
-
-    # Enable the GNOME Desktop Environment.
-    desktopManager.gnome.enable = true;
+    # Enable KDE Plasma and its display manager
+    desktopManager.plasma6.enable = true;
+    displayManager.plasma-login-manager.enable = true;
 
     # Configure keymap in X11
     xserver.xkb = {
@@ -45,6 +44,16 @@
 
     # Enable touchpad support (enabled default in most desktopManager).
     # xserver.libinput.enable = true;
+
+    usbmuxd = {
+      enable = true;
+      package = pkgs.usbmuxd2;
+    };
+
+    udev.packages = with pkgs; [
+      platformio-core
+      openocd
+    ];
   };
 
   # Required for sound

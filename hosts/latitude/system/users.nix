@@ -22,6 +22,7 @@
       "plugdev"
       "dialout"
       "uucp"
+      "tty"
     ];
     packages = with pkgs; [];
   };

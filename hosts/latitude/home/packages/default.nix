@@ -44,7 +44,6 @@
   };
 
   home.packages = with pkgs; [
-    vscode
     fastfetch
     thunderbird
     gparted
@@ -76,5 +75,7 @@
     discord
     mpv
     imhex
+    kdePackages.kcalc
+    kdePackages.filelight
   ];
 }

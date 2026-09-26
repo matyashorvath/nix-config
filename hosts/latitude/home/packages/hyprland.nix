@@ -7,7 +7,7 @@
   ...
 }: {
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = false;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
@@ -31,8 +31,8 @@
       env = [
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_QPA_PLATFORMTHEME,qt5ct"
-        "NIXOS_OZONE_WL,1"
-        "ELECTRON_OZONE_PLATFORM_HINT,wayland"
+        #"NIXOS_OZONE_WL,1"
+        #"ELECTRON_OZONE_PLATFORM_HINT,wayland"
         # TODO: place theme directory in the nix store for reproducibility
         "HYPRCURSOR_THEME,Future-Cyan-Hyprcursor_Theme"
         "HYPRCURSOR_SIZE,30"

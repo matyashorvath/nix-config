@@ -3,6 +3,7 @@
   pkgs,
   pkgs-stable,
   pkgs-unstable,
+  lib,
   inputs,
   ...
 }: {
@@ -12,13 +13,16 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      python311 =
-        prev.python311
-        // {
-          doc = prev.runCommand "python3.11-3.11.15-doc" {} ''
-            mkdir -p $out
-          '';
-        };
+      python311 = prev.python311.overrideAttrs (old: {
+        passthru =
+          (old.passthru or {})
+          // {
+            doc = prev.python311.doc.overrideAttrs (docOld: {
+              phases = ["installPhase"];
+              installPhase = "mkdir -p $out";
+            });
+          };
+      });
     })
   ];
 
@@ -31,7 +35,6 @@
     htop
     nix-search-cli
     hyprpolkitagent
-    python3
     udiskie
     acpilight
     alsa-utils
@@ -43,7 +46,7 @@
     #openssl_3
     #openssl_legacy
     texliveMedium
-    python311
+    (lib.lowPrio python311)
     virtualenv
     ffmpeg
     deno
@@ -56,6 +59,48 @@
     rtl-sdr
     gnuradio
     */
+
+    (
+      (vscode.override {
+        commandLineArgs = "--ozone-platform=x11";
+      })
+      .fhsWithPackages (
+        ps:
+          with ps; [
+            SDL2
+            SDL2.dev
+            pkg-config
+            libusb1
+            libusb1.dev
+            udev
+            udev.dev
+            ncurses5
+            ncurses
+            zlib
+            libxml2
+            zstd
+            brotli
+          ]
+      )
+    )
+    (python3.withPackages (python-pkgs:
+      with python-pkgs; [
+        tkinter
+        pip
+        ipykernel
+        pandas
+      ]))
+    cmake
+    ninja
+    gperf
+    ccache
+    dfu-util
+    dtc
+    file
+    psmisc
+    libimobiledevice
+    ifuse
+    nodejs
   ];
 
   programs = {
@@ -67,12 +112,14 @@
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
+    /*
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
     };
+    */
 
     nix-ld = {
       enable = true;
@@ -80,6 +127,12 @@
         stdenv.cc.cc.lib
         udev
         zlib
+        libusb1
+        ncurses5
+        ncurses
+        libxml2
+        zstd
+        brotli
       ];
     };
   };

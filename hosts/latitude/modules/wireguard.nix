@@ -14,6 +14,8 @@
         listenPort = 39680;
         privateKeyFile = "/etc/nixos/secrets/wg-keys/lat";
 
+        mtu = 1280;
+
         peers = [
           {
             publicKey = builtins.readFile ../../../secrets/wg-keys/rpi.pub;
