@@ -101,6 +101,10 @@
     libimobiledevice
     ifuse
     nodejs
+    rclone
+    minicom
+    cutecom
+    usbutils
   ];
 
   programs = {
