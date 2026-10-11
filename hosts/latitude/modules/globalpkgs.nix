@@ -107,6 +107,7 @@
     screen
     usbutils
     nsnake
+    cmatrix
   ];
 
   programs = {
