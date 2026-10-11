@@ -104,7 +104,9 @@
     rclone
     minicom
     cutecom
+    screen
     usbutils
+    nsnake
   ];
 
   programs = {
