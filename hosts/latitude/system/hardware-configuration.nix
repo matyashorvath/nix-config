@@ -65,4 +65,15 @@
   };
 
   hardware.rtl-sdr.enable = true;
+
+  boot.kernelPackages = pkgs.linuxPackages.extend (final: prev: {
+    vmware = prev.vmware.overrideAttrs (old: {
+      postInstall =
+        (old.postInstall or "")
+        + ''
+          touch $out/lib/modules/${prev.kernel.modDirVersion}/misc/vmmon.ko.cer
+          touch $out/lib/modules/${prev.kernel.modDirVersion}/misc/vmnet.ko.cer
+        '';
+    });
+  });
 }

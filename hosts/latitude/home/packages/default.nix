@@ -49,7 +49,6 @@
     gparted
     inputs.alejandra.defaultPackage.${system}
     git-credential-oauth
-    vmware-workstation
     kitty-themes
     inputs.hyprpaper.packages.${system}.hyprpaper
     inputs.hyprpicker.packages.${system}.hyprpicker
