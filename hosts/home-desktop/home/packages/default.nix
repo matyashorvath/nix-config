@@ -29,7 +29,6 @@
     (with pkgs; [
       thunderbird
       inputs.alejandra.defaultPackage.${system}
-      vmware-workstation
       chromium
       distrobox
       distrobox-tui
@@ -55,7 +54,7 @@
       shotcut
       scantailor-universal
       wpsoffice
-      squeekboard
+      stevia
       baobab
       qdirstat
       python313Packages.f3d

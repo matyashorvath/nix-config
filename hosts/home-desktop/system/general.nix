@@ -27,7 +27,16 @@
   };
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest.extend (final: prev: {
+    vmware = prev.vmware.overrideAttrs (old: {
+      postInstall =
+        (old.postInstall or "")
+        + ''
+          touch $out/lib/modules/${prev.kernel.modDirVersion}/misc/vmmon.ko.cer
+          touch $out/lib/modules/${prev.kernel.modDirVersion}/misc/vmnet.ko.cer
+        '';
+    });
+  });
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
