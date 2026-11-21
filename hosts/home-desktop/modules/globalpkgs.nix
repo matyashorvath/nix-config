@@ -22,6 +22,22 @@
   };
 
   environment.systemPackages = with pkgs; [
+    (vscode.fhsWithPackages (
+      ps:
+        with ps; [
+          SDL2
+          SDL2.dev
+          pkg-config
+          libusb1
+          libusb1.dev
+          udev
+          udev.dev
+        ]
+    ))
+    (python3.withPackages (python-pkgs:
+      with python-pkgs; [
+        tkinter
+      ]))
     vim
     wget
     git
@@ -30,8 +46,7 @@
     git-crypt
     gnumake
     gdb
-    python3
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
     nsnake
     htop
     openra
@@ -39,5 +54,15 @@
     poppler-utils
     pdftk
     texliveFull
+    cmake
+    ninja
+    gperf
+    ccache
+    dfu-util
+    dtc
+    file
+    gcc
+    psmisc
+    jdk
   ];
 }

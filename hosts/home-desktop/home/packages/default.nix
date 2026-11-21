@@ -27,7 +27,6 @@
 
   home.packages =
     (with pkgs; [
-      vscode
       thunderbird
       inputs.alejandra.defaultPackage.${system}
       vmware-workstation
@@ -42,7 +41,7 @@
       imhex
       kstars
       stellarium
-      superTuxKart
+      supertuxkart
       gimp3
       inkscape
       libreoffice-qt-fresh
